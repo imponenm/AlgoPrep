@@ -5,9 +5,11 @@ Rating: Easy
 Given a 32-bit signed integer, reverse digits of an integer.
 
 Notes:
+I gotta go back and study this one to understand the optimal solution better. This was tough for being an easy problem.
+
 Signed integer range is [-2^31, 2^31 - 1]. We'll return 0 if the result isn't in this range.
-You could implement a solution by popping and pushing digits, but it's so much simpler and also fast enough
-to just cast the int to a string, then reverse that using Python's list notation.
+
+You could do this by converting a python string and using list notation to reverse it, but that's not optimal.
 '''
 
 class Solution:

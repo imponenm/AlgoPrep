@@ -12,18 +12,22 @@ Better solution is to pop and push the back half of the input.
 
 
 class Solution:
-    def isPalindrome(self, x: int) -> bool:
-        if x < 0 or (x % 10 == 0 and x != 0):
-            return False
+    def reverse(self, x: int) -> int:
+        MIN = -2 ** 31
+        MAX = (2 ** 31) - 1
 
-        n = 0
-        while x > n:
-            n *= 10
-            n += x % 10
-            if x == n:
-                return True
+        mult = 1
+        if x < 0:
+            x *= -1
+            mult = -1
+
+        res = 0
+        while x != 0:
+            res *= 10
+            res += x % 10
             x = x // 10
 
-        if x == n:
-            return True
-        return False
+        res *= mult
+        if res not in range(MIN, MAX):
+            return 0
+        return res
