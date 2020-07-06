@@ -44,10 +44,10 @@ class Solution:
         elif l2 is None:
             return l1
         elif l1.val < l2.val:
-            l1.next = self.alternate(l1.next, l2)
+            l1.next = self.recursive(l1.next, l2)
             return l1
         else:
-            l2.next = self.alternate(l1, l2.next)
+            l2.next = self.recursive(l1, l2.next)
             return l2
 
 '''
