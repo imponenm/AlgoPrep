@@ -27,4 +27,3 @@ class Solution:
         for num in nums:
             a ^= num
         return a
-    

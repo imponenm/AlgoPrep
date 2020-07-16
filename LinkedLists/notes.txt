@@ -1,0 +1,19 @@
+Linked Lists
+
+
+Runtimes
+---------
+Adding a node: O(1)
+All you have to do is set the next node of the node to be added and the previous node. If you're adding to the head,
+you need to update the head. Also note that if you have to traverse the list to find an item before adding, the algo
+will still be O(N). This is mostly just to note that the actual add operation is O(1)
+
+Deleting a node: O(N)
+We have to traverse the list to find our value to delete, hence O(N). Once you find it, you just have to change
+the previous node's next pointer to be the deletion node's next value. Again, note there is slightly different handling
+if the node is the head
+
+
+
+
+
