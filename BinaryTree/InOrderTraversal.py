@@ -1,53 +1,38 @@
+'''
+Binaray Tree In-Order traversal
+
+Recursively this is O(N) space and time, since worst case we visit every node.
+This could be done iteravely with a stack as well, and it would give the same space and runtime.
+
+It should be noted that average space can be as good as logN depending on tree structure
+'''
+
+
 # Definition for a binary tree node.
 from typing import List
 
 
+# Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
+
 class Solution:
-
     def inorderTraversal(self, root: TreeNode) -> List[int]:
-        if not root:
-            return None
+        res = []
 
-        res, stack = [], []
+        def helper(root):
+            if root:                        # As long as we don't have a null node
+                if root.left:               # If there's a left node keep going left
+                    helper(root.left)
 
-        if root.left:
-            stack = [root.left]
+                res.append(root.val)        # Once we've gone all the way left, add that value to result
 
-        while stack:
-            curNode = stack.pop()
-            res.append(curNode.val)
+                if root.right:              # Now we can move right
+                    helper(root.right)
 
-            if curNode.right:
-                stack.append(curNode.right)
-            if curNode.left:
-                stack.append(curNode.left)
-
-        res.append(root.val)
-
-        if root.right:
-            stack = [root.right]
-
-        while stack:
-            curNode = stack.pop()
-            res.append(curNode.val)
-
-            if curNode.right:
-                stack.append(curNode.right)
-            if curNode.left:
-                stack.append(curNode.left)
-
+        helper(root)
         return res
-
-
-n2 = TreeNode(3, None, None)
-n1 = TreeNode(2, n2, None)
-root = TreeNode(1, None, n1)
-
-s = Solution()
-print(s.inorderTraversal(root))
