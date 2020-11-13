@@ -10,7 +10,8 @@ A message containing letters from A-Z is being encoded to numbers using the foll
 Given a non-empty string containing only digits, determine the total number of ways to decode it.
 
 Notes:
-Did this recursively for O(N) time and space. You could do this dynamically too, which could be optimized to be O(1) space
+Did this recursively for O(N) time and space. You could do this dynamically too, which could be optimized to be O(1)
+space. This is a good problem to return to later
 '''
 
 
